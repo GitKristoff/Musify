@@ -1,6 +1,6 @@
 <p align="center">
 
-![CodingCat](./assets/img/codingCat.jpg)
+![CodingCat](/Musify/Assets/img/codingCat.jpg)
 
 </p>
 
