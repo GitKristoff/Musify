@@ -7,25 +7,25 @@ const art_img = document.querySelector('#artist');
 const art_name = document.querySelector('#name');
 const playSong = document.querySelector('#playsong');
 
-const artist_name = ['Alan Walker', 'Drake', 'Jubin Nautiyal', 'Ases Kaur', 'Aca Xoca', 'Javed Ali'];
+const artist_name = ['Eminem', 'Ice Cube', 'Snoop Dogg', 'Nelly', 'Dr. Dre'];
 
-const artist_title = ['Faded','Baby I Like Your Style one Dance','Raatan Lambiyan','La La lo La La','Srivalli'];
+const artist_title = ['The Real Slim Shady','It Was A Good Day','Drop It like Its Hot','Dilemma','Still D.R.E'];
 
 playSong.addEventListener('click', effect)
 
 function effect(){
   if (ad.duration == ad.currentTime){
-    x += 1;
+    x -= 1;
     console.log(x);
   }
-  if((!playing.classList.contains('none'))){
-    ad.play();
-    // setInterval(prog,1000);
-    // setInterval(line,1000);
-    // progres.addEventListener('click',(e) =>{
-    //    var widthbar2 = (e.offsetX/e.target.clientWidth)*ad.duration;
-    //    ad.currentTime = widthbar2;
-    // })
+  if((!playing.classList.contains('.none'))){
+      ad.play();
+      setInterval(prog, 1000);
+      setInterval(line, 1000);
+      progress.addEventListener('click', (e) =>{
+         var widthbar2 = (e.offsetX / e.target.clientWidth) * ad.duration;
+         ad.currentTime = widthbar2;
+      })
   }
   else{
     ad.pause();
@@ -49,21 +49,21 @@ function removeEffect(){
 var x = 0;
 
 function backward(){
-  // dur();
+  dur();
   x -= 1;
   removeEffect();
   songs(x);
   if(x <= 0){
-    x = artist_name.length;
+     x = artist_name.length;
   }
 }
 
 function forward(){
-  // dur();
+  dur();
   x += 1;
   removeEffect();
   songs(x);
-  if(x >= artist_name.length-1){
+  if(x >= artist_name.length -1){
     x = -1;
   }
 }
@@ -72,8 +72,38 @@ function songs(x){
 
   art_name.innerHTML = artist_name[x];
   ttl.innerHTML = artist_title[x]
-  art_img.src = `./img/ar${x}.jpg`;
-  ad.src = `./audio/s${x}.m4a`;
+  art_img.src = `./img/art${x}.jpg`;
+  ad.src = `./audio/s${x}.mp3`;
 }
 
-songs(0);
+songs(4);
+
+const lines = document.querySelector('.lineChild');
+const progress = document.querySelector('.line');
+const strt = document.querySelector('#start');
+const end = document.querySelector('#end');
+
+function dur(){
+  var dura = ad.duration;
+  var secdu = Math.floor(dura % 60);
+  var mindu = Math.floor(dura / 60);
+  if (secdu < 10){
+    secdu = `0${secdu}`;
+  }
+  end.innerHTML = `${mindu}:${secdu}`;
+}
+
+function prog(){
+  var curtime = ad.currentTime;
+  var mincur = Math.floor(curtime / 60);
+  var seccur = Math.floor(curtime % 60);
+  if (seccur < 10){
+    seccur = `0${seccur}`;
+  }
+  strt.innerHTML = `${mincur}:${seccur}`
+}
+
+function line(){
+  var widthbar = (ad.currentTime / ad.duration) * 100;
+  lines.style.width = `${widthbar}%`;
+}
