@@ -18,7 +18,7 @@ function effect(){
     x -= 1;
     console.log(x);
   }
-  if((!playing.classList.contains('.none'))){
+  if((!playing.classList.contains('none'))){
       ad.play();
       setInterval(prog, 1000);
       setInterval(line, 1000);
