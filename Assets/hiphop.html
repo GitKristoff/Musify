@@ -46,13 +46,20 @@
     .des-content{
       position: absolute;
       border: 1px gold solid;
-      height: 300px;
+      height: 350px;
       width: 500px;
-      top: 18rem;
+      top: 23rem;
       left: 4rem;
+      border-radius: 10%;
+      box-shadow: 3px 3px 10px black, -2px -2px 10px grey;
     }
     .des-content h1{
       text-align: center;
+      color: white;
+    }
+    #des{
+      text-align: justify;
+      font-style: oblique;
     }
     .SongsAndArtist li{
       text-align: justify;
@@ -61,19 +68,52 @@
       font-size: 24px;
       padding-left: 2rem;
       padding-bottom: 1rem;
+      color: white;
     }
+    /* home-footer */
+  .info li{
+  color: white;
+  display: inline-block;
+  padding-left: 3rem;
+  position: relative;
+  top: 32rem;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  .info li:hover{
+  color: gold;
+  transition: 0.5s;
+  }
+  #copyright{
+  color: white;
+  position: relative;
+  top: 33rem;
+  font-size: 12px;
+  }
+  .other-platforms{
+  display: inline-block;
+  position: relative;
+  top: 33rem;
+  left: 30px;
+  }
+  .other-platforms img{
+  height: 25px;
+  width: 30px;
+  padding-left: 3px;
+  }
   </style>
 </head>
-<body style="background-color:white; height: 120vh;">
+<body style="background-color:black; height: 150vh;">
 
   <section class="hiphop-header">
     <a href="/Musify/index.html"><i class="fa-solid fa-chevron-left fa-2xl back-btn" style="color: #2b2626;"></i></a>
     <h1>HipHop</h1>
-    <p id="des">Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br>Illum cum non pariatur dolorem, magnam esse saepe corporis impedit architecto natus?</p>
+    <p id="des" style="color: gold;">Hip hop or hip-hop, also known as rap, and formerly known as disco rap, is a genre of popular music <br> that originated in the early 1970s by black African Americans and Caribbean Americans immigrants <br> in the Bronx, a borough of New York City. It existed for several years prior to mainstream discovery.</p>
 
   </section>
   <div class="box-center">
-    <div class="des-content">
+    <div class="des-content"><br>
       <h1 style="color: aliceblue;">Sample Music List.</h1><br><br>
       <div class="SongsAndArtist">
         <li>Still D.R.E - Dr. Dre</li>
@@ -128,8 +168,26 @@
 
     </div>
   </div>
+  <footer class="home-footer">
+    <div class="other-platforms">
+      <img id="fb-logo" src="./img/fb-logo.png" alt="fb-logo">
+      <img id="ig-logo" src="./img/ig-logo.png" alt="ig-logo">
+      <img id="x-logo" src="./img/twitter-logo.png" alt="x-logo">
+    
+    </div>
+    <center>
+      <div class="info">
+        <li>About Us</li>
+        <li>Contact Us</li>
+        <li>Privacy & Policy</li>
+      </div>
+      <p id="copyright">© Musify 2023</p>
+    </center>
+  </footer>
 
   <script src="/Musify/app.js"></script>
   
+  
+
 </body>
 </html>
