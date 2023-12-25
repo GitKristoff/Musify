@@ -1,6 +1,6 @@
 <p align="center">
 
-![CodingCat](./Assets/img/codingCat.jpg)
+![Logo](./Assets/img/Logo%20&%20Qoute.png.jpg)
 
 </p>
 

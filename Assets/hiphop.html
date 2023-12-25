@@ -70,48 +70,177 @@
       padding-bottom: 1rem;
       color: white;
     }
-    /* home-footer */
-  .info li{
-  color: white;
-  display: inline-block;
-  padding-left: 3rem;
-  position: relative;
-  top: 32rem;
-  text-align: center;
-  font-size: 16px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* Music Player */
+    .box-1{
+    background: linear-gradient(yellow 20%, gray);
+    border: 1px black solid;
+    width: 250px;
+    height:350px;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px black, -2px -2px 10px grey;
+    position: absolute;
+    top: 23rem;
+    left: 55rem;
+    }
+    .center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .box{
+    height: 500px;
+    flex-direction: column;
+    }
+    .art img{
+    height: 100px;
+    width: 100px;
+    margin-bottom:20%;
+    border-radius: 50%;
+    border: 5px solid yellow;
+    }
+    .art-name{
+    text-align: center;
+    overflow: hidden;
+    width: 170px;
+    }
+    .box-1 h4{
+    margin-bottom: 35px;
+    }
+    .art-name p{
+    white-space: nowrap;
+    font-family: cursive;
+    font-weight: bold;
+    }
+    .round{
+    animation: round 4s linear infinite;
+    }
+
+    @keyframes round{
+    0%{
+      transform: rotateZ(0deg);
+      }
+    100%{
+      transform: rotateZ(100deg);
+      }
+    }
+
+    .run{
+    animation: run 6s linear infinite;
+    }
+    @keyframes run {
+      0%{
+      transform: translateX(100%);
+      }
+      100%{
+      transform: translateX(-100%);
+      }
+    }
+  .cntrl{
+  cursor: pointer;
+  background-color: yellow;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin: 0 15px;
   }
-  .info li:hover{
-  color: gold;
-  transition: 0.5s;
+  .cntrl:active{
+  transform: scale(0.9);
   }
-  #copyright{
-  color: white;
-  position: relative;
-  top: 33rem;
+  i{
+  font-size: 22px;
+  }
+  .none{
+  display: none;
+  }
+  .msc{
+  margin-top: 30px;
+  }
+  .prog{
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  }
+  .time{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 12px;
   }
-  .other-platforms{
-  display: inline-block;
+  .line{
+  width: 100%;
+  height: 5px;
+  margin-top: 5px;
+  background-color: white;
+  border-radius: 10px;
   position: relative;
-  top: 33rem;
-  left: 30px;
+  cursor: pointer;
   }
-  .other-platforms img{
-  height: 25px;
-  width: 30px;
-  padding-left: 3px;
+  .lineChild{
+  cursor: pointer;
+  position: absolute;
+  border-radius: 10px;
+  background-color: yellow;
+  width: 0%;
+  height: 100%;
+  transition: width 0.1s;
   }
+  .lineChild::after{
+  content: "";
+  position: absolute;
+  background-color: black;
+  cursor: pointer;
+  top: -3px;
+  right: 0;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  }
+    /* home-footer */
+    .info li{
+    color: white;
+    display: inline-block;
+    padding-left: 3rem;
+    position: relative;
+    top: 32rem;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .info li:hover{
+    color: gold;
+    transition: 0.5s;
+    }
+    #copyright{
+    color: white;
+    position: relative;
+    top: 33rem;
+    font-size: 12px;
+    }
+    .other-platforms{
+    display: inline-block;
+    position: relative;
+    top: 33rem;
+    left: 30px;
+    }
+    .other-platforms img{
+    height: 25px;
+    width: 30px;
+    padding-left: 3px;
+    }
   </style>
 </head>
+
 <body style="background-color:black; height: 150vh;">
 
   <section class="hiphop-header">
     <a href="/Musify/index.html"><i class="fa-solid fa-chevron-left fa-2xl back-btn" style="color: #2b2626;"></i></a>
     <h1>HipHop</h1>
     <p id="des" style="color: gold;">Hip hop or hip-hop, also known as rap, and formerly known as disco rap, is a genre of popular music <br> that originated in the early 1970s by black African Americans and Caribbean Americans immigrants <br> in the Bronx, a borough of New York City. It existed for several years prior to mainstream discovery.</p>
-
   </section>
+
+
   <div class="box-center">
     <div class="des-content"><br>
       <h1 style="color: aliceblue;">Sample Music List.</h1><br><br>
@@ -185,7 +314,118 @@
     </center>
   </footer>
 
-  <script src="/Musify/app.js"></script>
+  <!-- <script src="/Musify/app.js"></script> -->
+<script>
+  const ad = document.querySelector('.song');
+  const playing = document.querySelector('.fa-play');
+  const pauses = document.querySelector('.fa-pause');
+  const forw = document.querySelector('fa-forward-step');
+  const ttl = document.querySelector('.title');
+  const art_img = document.querySelector('#artist');
+  const art_name = document.querySelector('#name');
+  const playSong = document.querySelector('#playsong');
+
+  const artist_name = ['Eminem', 'Ice Cube', 'Snoop Dogg', 'Nelly', 'Dr. Dre'];
+
+  const artist_title = ['The Real Slim Shady','It Was A Good Day','Drop It like Its Hot','Dilemma','Still D.R.E'];
+
+  playSong.addEventListener('click', effect)
+
+  function effect(){
+  if (ad.duration == ad.currentTime){
+    x -= 1;
+    console.log(x);
+  }
+  if((!playing.classList.contains('none'))){
+      ad.play();
+      setInterval(prog, 1000);
+      setInterval(line, 1000);
+      progress.addEventListener('click', (e) =>{
+         var widthbar2 = (e.offsetX / e.target.clientWidth) * ad.duration;
+         ad.currentTime = widthbar2;
+      })
+    }
+    else{
+      ad.pause();
+    }
+    ttl.classList.toggle('run');
+    playing.classList.toggle('none');
+    pauses.classList.toggle('none');
+    art_img.classList.toggle('round');
+    dur();
+  }
+
+  function removeEffect(){
+    ad.pause();
+    ad.currentTime = 0.01;
+    ttl.classList.remove('run');
+    playing.classList.remove('none');
+    pauses.classList.add('none');
+    art_img.classList.remove('round');
+  }
+
+  var x = 0;
+
+  function backward(){
+  dur();
+  x -= 1;
+  removeEffect();
+  songs(x);
+  if(x <= 0){
+     x = artist_name.length;
+    }
+  }
+
+  function forward(){
+    dur();
+    x += 1;
+    removeEffect();
+    songs(x);
+    if(x >= artist_name.length -1){
+      x = -1;
+    }
+  }
+
+  function songs(x){
+
+    art_name.innerHTML = artist_name[x];
+    ttl.innerHTML = artist_title[x]
+    art_img.src = `./img/art${x}.jpg`;
+    ad.src = `./audio/s${x}.mp3`;
+  }
+
+  songs(0);
+
+  const lines = document.querySelector('.lineChild');
+  const progress = document.querySelector('.line');
+  const strt = document.querySelector('#start');
+  const end = document.querySelector('#end');
+
+  function dur(){
+    var dura = ad.duration;
+    var secdu = Math.floor(dura % 60);
+    var mindu = Math.floor(dura / 60);
+    if (secdu < 10){
+      secdu = `0${secdu}`;
+    }
+    end.innerHTML = `${mindu}:${secdu}`;
+  }
+
+  function prog(){
+    var curtime = ad.currentTime;
+    var mincur = Math.floor(curtime / 60);
+    var seccur = Math.floor(curtime % 60);
+    if (seccur < 10){
+      seccur = `0${seccur}`;
+    }
+    strt.innerHTML = `${mincur}:${seccur}`
+  }
+
+  function line(){
+    var widthbar = (ad.currentTime / ad.duration) * 100;
+    lines.style.width = `${widthbar}%`;
+  }
+</script>
   
   
 
