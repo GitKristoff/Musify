@@ -7,7 +7,7 @@
 # 💻Web Systems and Technologies: Final Project
 
 ## 🧾Description:
-* 🔔 This repository is use for our Final project in our subject Web Systems and Technologies. THIS PROJECT IS CURRENTLY UNFINISHED AND IN PROGRESS.
+* 🔔 This repository is use for our Final project in our subject Web Systems and Technologies.
 
 
 ## 👨‍💻 Members:
