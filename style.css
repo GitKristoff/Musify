@@ -26,7 +26,6 @@
   position: relative;
   top: 1rem;
   left: 4rem;
-  /* border: 1px gold solid; */
 }
 .logo img{
   height: 8rem;
@@ -35,10 +34,9 @@
 }
 .nav-bars{
   height: 20px;
-  width: 400px;
-  /* border: 1px crimson solid; */
+  width: 250px;
   grid-row: 2/-5 ;
-  grid-column:8/12 ;
+  grid-column:10/12 ;
 }
 .nav-bars a li{
   display: inline-block;

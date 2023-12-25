@@ -3,9 +3,430 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="/Musify/style.css">
+  <link rel="shortcut icon" href="./img/Logo2.png" type="image/x-icon">
   <title>Country</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .hiphop-header{
+      height: 250px;
+      width: 100%;
+      background-image: url(./img/country.jpg);
+      background-size: 200px;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      box-shadow: 3px 10px 5px gray;
+      border-radius: 30px;
+      overflow: hidden;
+    }
+    .back-btn{
+      position: absolute;
+      top: 30px;
+      left: 10px;
+      cursor: pointer;
+    }
+    .hiphop-header h1{
+      position: relative;
+      top: 10px;
+      left: 500px;
+      font-size: 80px;
+      color:white;
+    }
+    .hiphop-header #des{
+      position: relative;
+      color: white;
+      top: 50px;
+      left: 500px;
+      font-size: 18px;
+    }
+    .des-content{
+      position: absolute;
+      border: 1px gold solid;
+      height: 350px;
+      width: 500px;
+      top: 23rem;
+      left: 4rem;
+      border-radius: 10%;
+      box-shadow: 3px 3px 10px black, -2px -2px 10px grey;
+    }
+    .des-content h1{
+      text-align: center;
+      color: white;
+    }
+    #des{
+      text-align: justify;
+      font-style: oblique;
+    }
+    .SongsAndArtist li{
+      text-align: justify;
+      text-decoration:none;
+      list-style: none;
+      font-size: 24px;
+      padding-left: 2rem;
+      padding-bottom: 1rem;
+      color: white;
+    }
+    /* Music Player */
+    .box-1{
+    background: linear-gradient(yellow 20%, gray);
+    border: 1px black solid;
+    width: 250px;
+    height:350px;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px black, -2px -2px 10px grey;
+    position: absolute;
+    top: 23rem;
+    left: 55rem;
+    }
+    .center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .box{
+    height: 500px;
+    flex-direction: column;
+    }
+    .art img{
+    height: 100px;
+    width: 100px;
+    margin-bottom:20%;
+    border-radius: 50%;
+    border: 5px solid yellow;
+    }
+    .art-name{
+    text-align: center;
+    overflow: hidden;
+    width: 170px;
+    }
+    .box-1 h4{
+    margin-bottom: 35px;
+    }
+    .art-name p{
+    white-space: nowrap;
+    font-family: cursive;
+    font-weight: bold;
+    }
+    .round{
+    animation: round 4s linear infinite;
+    }
+
+    @keyframes round{
+    0%{
+      transform: rotateZ(0deg);
+      }
+    100%{
+      transform: rotateZ(100deg);
+      }
+    }
+
+    .run{
+    animation: run 6s linear infinite;
+    }
+    @keyframes run {
+      0%{
+      transform: translateX(100%);
+      }
+      100%{
+      transform: translateX(-100%);
+      }
+    }
+  .cntrl{
+  cursor: pointer;
+  background-color: yellow;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin: 0 15px;
+  }
+  .cntrl:active{
+  transform: scale(0.9);
+  }
+  i{
+  font-size: 22px;
+  }
+  .none{
+  display: none;
+  }
+  .msc{
+  margin-top: 30px;
+  }
+  .prog{
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  }
+  .time{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  }
+  .line{
+  width: 100%;
+  height: 5px;
+  margin-top: 5px;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  }
+  .lineChild{
+  cursor: pointer;
+  position: absolute;
+  border-radius: 10px;
+  background-color: yellow;
+  width: 0%;
+  height: 100%;
+  transition: width 0.1s;
+  }
+  .lineChild::after{
+  content: "";
+  position: absolute;
+  background-color: black;
+  cursor: pointer;
+  top: -3px;
+  right: 0;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  }
+    /* home-footer */
+    .info li{
+    color: white;
+    display: inline-block;
+    padding-left: 3rem;
+    position: relative;
+    top: 32rem;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .info li:hover{
+    color: gold;
+    transition: 0.5s;
+    }
+    #copyright{
+    color: white;
+    position: relative;
+    top: 33rem;
+    font-size: 12px;
+    }
+    .other-platforms{
+    display: inline-block;
+    position: relative;
+    top: 33rem;
+    left: 30px;
+    }
+    .other-platforms img{
+    height: 25px;
+    width: 30px;
+    padding-left: 3px;
+    }
+  </style>
 </head>
-<body>
+
+<body style="background-color:black; height: 150vh;">
+
+  <section class="hiphop-header">
+    <a href="/Musify/index.html"><i class="fa-solid fa-chevron-left fa-2xl back-btn" style="color: #ffffff;"></i></a>
+    <h1>Country</h1>
+    <p id="des" style="color: gold;">is a music genre originating in the Southern and Southwestern United States. First produced in the <br> 1920s, country music primarily focuses on working class Americans and blue-collar U.S. American life.</p>
+  </section>
+
+
+  <div class="box-center">
+    <div class="des-content"><br>
+      <h1 style="color: aliceblue;">Sample Music List.</h1><br><br>
+      <div class="SongsAndArtist">
+        <li>In case you didn’t know - Brett Young</li>
+        <li>Take me Home, Country Roads - John Denver</li>
+        <li>Wagon Wheel - Darius Rucker</li>
+        <li>Beautiful Crazy - Luke Combs</li>
+        <li>Blue Ain’t your color - Keith Urban</li>
+      </div>
+    </div>
+   
+    <div class="box-1 center">
+      <h4 id="name"></h4>
+
+      <div class="art">
+        <img class="center" id="artist" src="">
+      </div>
+
+      <div class="art-name">
+        <p class="title"></p>
+      </div>
+
+      <div class="prog">
+
+        <div class="time">
+          <div class="start">
+            <p id="start">0:00</p>
+          </div>
+          <div class="end">
+            <p id="end">0:00</p>
+          </div>
+        </div>
+
+        <div class="line">
+          <div class="lineChild"></div>
+        </div>
+      </div>
+
+      <div class="msc center">
+        <div class="cntrl center" onclick="backward()">
+          <i class="fa-solid fa-backward-step"></i>
+        </div>
+        <div class="cntrl center" id="playsong">
+          <i class="fa-solid fa-play"></i>
+          <i class="fa-solid fa-pause none"></i>
+        </div>
+        <div class="cntrl center" onclick="forward()">
+          <i class="fa-solid fa-forward-step"></i>
+        </div>
+        <audio src="" class="song"></audio>
+      </div>
+
+
+    </div>
+  </div>
+  <footer class="home-footer">
+    <div class="other-platforms">
+      <img id="fb-logo" src="./img/fb-logo.png" alt="fb-logo">
+      <img id="ig-logo" src="./img/ig-logo.png" alt="ig-logo">
+      <img id="x-logo" src="./img/twitter-logo.png" alt="x-logo">
+    
+    </div>
+    <center>
+      <div class="info">
+        <li>About Us</li>
+        <li>Contact Us</li>
+        <li>Privacy & Policy</li>
+      </div>
+      <p id="copyright">© Musify 2023</p>
+    </center>
+  </footer>
+
+<script>
+  const ad = document.querySelector('.song');
+  const playing = document.querySelector('.fa-play');
+  const pauses = document.querySelector('.fa-pause');
+  const forw = document.querySelector('fa-forward-step');
+  const ttl = document.querySelector('.title');
+  const art_img = document.querySelector('#artist');
+  const art_name = document.querySelector('#name');
+  const playSong = document.querySelector('#playsong');
+
+  const artist_name = ['Brett Young','John Denver','Darius Rucker','Luke Combs','Keith Urban'];
+
+  const artist_title = ['In case you didn’t know','Take me Home, Country Roads','Wagon Wheel','Beautiful Crazy','Blue Ain’t Your Color'];
+
+  playSong.addEventListener('click', effect)
+
+  function effect(){
+  if (ad.duration == ad.currentTime){
+    x -= 1;
+    console.log(x);
+  }
+  if((!playing.classList.contains('none'))){
+      ad.play();
+      setInterval(prog, 1000);
+      setInterval(line, 1000);
+      progress.addEventListener('click', (e) =>{
+         var widthbar2 = (e.offsetX / e.target.clientWidth) * ad.duration;
+         ad.currentTime = widthbar2;
+      })
+    }
+    else{
+      ad.pause();
+    }
+    ttl.classList.toggle('run');
+    playing.classList.toggle('none');
+    pauses.classList.toggle('none');
+    art_img.classList.toggle('round');
+    dur();
+  }
+
+  function removeEffect(){
+    ad.pause();
+    ad.currentTime = 0.01;
+    ttl.classList.remove('run');
+    playing.classList.remove('none');
+    pauses.classList.add('none');
+    art_img.classList.remove('round');
+  }
+
+  var x = 0;
+
+  function backward(){
+  dur();
+  x -= 1;
+  removeEffect();
+  songs(x);
+  if(x <= 0){
+     x = artist_name.length;
+    }
+  }
+
+  function forward(){
+    dur();
+    x += 1;
+    removeEffect();
+    songs(x);
+    if(x >= artist_name.length -1){
+      x = -1;
+    }
+  }
+
+  function songs(x){
+
+    art_name.innerHTML = artist_name[x];
+    ttl.innerHTML = artist_title[x]
+    art_img.src = `./img/artCOUNTRY${x}.jpg`;
+    ad.src = `./audio/sCOUNTRY${x}.mp3`;
+  }
+
+  songs(0);
+
+  const lines = document.querySelector('.lineChild');
+  const progress = document.querySelector('.line');
+  const strt = document.querySelector('#start');
+  const end = document.querySelector('#end');
+
+  function dur(){
+    var dura = ad.duration;
+    var secdu = Math.floor(dura % 60);
+    var mindu = Math.floor(dura / 60);
+    if (secdu < 10){
+      secdu = `0${secdu}`;
+    }
+    end.innerHTML = `${mindu}:${secdu}`;
+  }
+
+  function prog(){
+    var curtime = ad.currentTime;
+    var mincur = Math.floor(curtime / 60);
+    var seccur = Math.floor(curtime % 60);
+    if (seccur < 10){
+      seccur = `0${seccur}`;
+    }
+    strt.innerHTML = `${mincur}:${seccur}`
+  }
+
+  function line(){
+    var widthbar = (ad.currentTime / ad.duration) * 100;
+    lines.style.width = `${widthbar}%`;
+  }
+</script>
   
+  
+
 </body>
 </html>

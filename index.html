@@ -48,7 +48,6 @@
     <div class="nav-bars">
       <ul>
         <a href="./index.html"><li id="home-btn">Home</li></a>
-        <a href="./playlist.html"><li id="playlist-btn">Playlist</li></a>
         <a href="./About.html"><li id="about-btn">About</li></a>
       </ul>
     </div>
@@ -135,7 +134,7 @@
   
   prev.addEventListener('click', function(){
     let items = document.querySelectorAll('.item')
-    document.querySelector('.slide').prepend(items[items.length - 1]) // here the length of items = 6
+    document.querySelector('.slide').prepend(items[items.length - 1])
   })
   </script>
 
