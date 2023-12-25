@@ -1,6 +1,6 @@
 <p align="center">
 
-![Logo](./Assets/img/Logo%20&%20Qoute.png.jpg)
+![Logo](./Assets/img/Logo%20&%20Qoute.png)
 
 </p>
 
